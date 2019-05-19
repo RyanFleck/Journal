@@ -1,0 +1,6 @@
+baseURL = "http://example.org/"
+languageCode = "en-us"
+title = "Personal Journal"
+
+[params]
+    name = "First Last"

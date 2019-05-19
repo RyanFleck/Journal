@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="/style.css" /> 
+    <title>{{ .Title }}</title>
+  </head>  
+  <body>
+    <h1>{{ .Title }}</h1>
+
+    <ol id="toc" reversed>
+    {{ range .Pages }}
+        <li><a href="#{{ urlize .Date }}-{{ urlize .Title }}">{{ .Date.Format "2006-01-02" }} - {{ .Title }}</a></li>
+    {{ end }}
+    </ol>
+
+    {{ range .Pages }}
+        <br />
+        <h3 id="{{ urlize .Date }}-{{ urlize .Title }}" class="entry-title">{{ .Title }}</h3>
+        <small class="entry-date">{{ .Date }}</small>
+        {{ .Content }}
+    {{ end }}
+
+    <br />
+          
+
+  </body>
+</html>
