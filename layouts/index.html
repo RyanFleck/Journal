@@ -33,13 +33,13 @@
 
     <ol id="toc" reversed>
     {{ range .Pages }}
-        <li><a href="#{{ urlize .Date.Format "2006-01-02" }}-{{ urlize .Title }}">{{ .Date.Format "2006-01-02" }} - {{ .Title }}</a></li>
+        <li><a href="#{{ urlize (.Date.Format "2006-01-02") }}-{{ urlize .Title }}">{{ .Date.Format "2006-01-02" }} - {{ .Title }}</a></li>
     {{ end }}
     </ol>
 
     {{ range .Pages }}
         <br />
-        <h3 id="{{ urlize .Date.Format "2006-01-02" }}-{{ urlize .Title }}" class="entry-title">{{ .Title }}</h3>
+        <h3 id="{{ urlize (.Date.Format "2006-01-02") }}-{{ urlize .Title }}" class="entry-title">{{ .Title }}</h3>
         {{ if .Date }}
         <small class="entry-date">{{ .Date.Format "2006-01-02" }}</small>
         {{ else }}
