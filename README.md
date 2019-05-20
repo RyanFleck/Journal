@@ -7,8 +7,8 @@ Hugo-based system for writing, organizing, and analysis of my personal journal e
 Metrics and analysis of posts will be integrated at a later date, utilizing *D3* for visuals.
 
 **Development Progress:**
-- [x] Write hugo site. (1h)
-- [ ] Port shell scripts. (1h)
+- [x] Write hugo site.
+- [x] Port shell scripts.
 
 ## Installation
 
