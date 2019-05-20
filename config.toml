@@ -4,3 +4,7 @@ title = "Personal Journal"
 
 [params]
     name = "First Last"
+
+# https://github.com/gohugoio/hugo/commit/68bf1511f2be39b6576d882d071196e477c72c9f
+[frontmatter]
+    date  = [":filename", ":default"]

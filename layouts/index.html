@@ -22,6 +22,9 @@
           color: rgb(28, 65, 187);
           text-decoration: none;
       }
+      pre{
+        overflow-x: auto;
+      }
     </style> 
     <title>{{ .Title }}</title>
   </head>  
@@ -38,7 +41,7 @@
         <br />
         <h3 id="{{ urlize .Date }}-{{ urlize .Title }}" class="entry-title">{{ .Title }}</h3>
         {{ if .Date }}
-        <small class="entry-date">{{ .Date }}</small>
+        <small class="entry-date">{{ .Date.Format "2006-01-02" }}</small>
         {{ else }}
         <small class="entry-date">No date</small>
         {{ end }}
