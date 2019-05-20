@@ -1,0 +1,40 @@
+#!/bin/sh
+
+# Get directory and filename
+script_rp=$(dirname "$0")
+script_wd=`cd $script_rp && cd .. && pwd`
+today=`date +%F`
+entry="$script_wd/content/entries/$today.md"
+
+# Get time variables
+hour=`date +%H%Mh`
+
+printf "\n[JE] Journal Entry Tool v1.0\nToday is $today\nOperating at $script_wd\nFile: $entry\nPulling the latest... "
+
+cd "$script_wd"
+git pull
+
+# Check if today's entry exists. If not, add.
+
+if [ ! -f "$entry" ]
+then
+    echo "No entry found. Initializing new daily entry."
+    hugo new "entries/$today.md"
+else
+    echo "Entry already initialized. Opening with vim."
+fi
+
+echo "
+**$hour** <!--JSON{dt:\"$today\",w:\"\"}-->
+
+" >> $entry
+
+vim + $entry
+
+# Commit and push updated entry.
+git add $entry
+git commit -m ":robot: Added to Journal $today"
+git push
+
+# printf "Changes uploaded.\nWords that may be misspelled:\n"
+# spell -d personal.dictionary $entry

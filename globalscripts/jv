@@ -1,0 +1,8 @@
+#!/bin/sh
+script_rp=$(dirname "$0")
+script_wd=`cd $script_rp && cd .. && pwd`
+cd $script_wd
+pwd
+hugo
+cd public
+firefox index.html
