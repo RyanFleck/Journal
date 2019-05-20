@@ -17,6 +17,6 @@ Metrics and analysis of posts will be integrated at a later date, utilizing *D3*
 - `je` can be called from anywhere to add a new daily file if one does not exist, add a new timestamp, and place the cursor in the correct location for the user to begin a new entry.
 - `jv` can be called from anywhere to spin up the hugo site locally and open the configured browser to the homepage.
 
-Calling `jv` builds and opens the site in firefox, and currently appears like the image below. The actual site is less than 100 lines of Hugo-HTML and CSS.
+Calling `jv` builds and opens the site in firefox, and currently appears like the image below. The actual site is less than 100 lines of Hugo-HTML and CSS. Currently the GUI displays a table of contents that is linked to each post header, and every post in chronological order.
 
 ![](/readme_resources/journal.png)
