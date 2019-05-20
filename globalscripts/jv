@@ -5,4 +5,4 @@ cd $script_wd
 pwd
 hugo
 cd public
-firefox index.html
+firefox index.html &
