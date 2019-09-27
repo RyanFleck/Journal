@@ -3,48 +3,39 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <style>
-      html{
-      background: #EEE;
-      color: #333;
-      }
-      body{
-          margin: 0 auto 0 auto;
-          max-width: 600px;
-      }
-      .entry-title{
-          margin-bottom: 0;
-      }
-      .entry-date{
-          margin-top: 0;
-      }
-      #toc li a{
-          color: rgb(28, 65, 187);
-          text-decoration: none;
-      }
-      pre{
-        overflow-x: auto;
-      }
-    </style> 
+    
+    {{- partial "style.html" . -}}    
+    
+    
     <title>{{ .Title }}</title>
   </head>  
   <body>
-    <h1>{{ .Title }}</h1>
+    <h1 id="top">Journal</h1>
 
     <ol id="toc" reversed>
-    {{ range .Pages }}
-        <li><a href="#{{ urlize (.Date.Format "2006-01-02") }}-{{ urlize .Title }}">{{ .Date.Format "2006-01-02" }} - {{ .Title }}</a></li>
+    {{ range .Site.RegularPages }}
+        <li><a 
+            id="toc-{{ urlize (.Date.Format "2006-01-02") }}-{{ urlize .Title }}"
+            href="#{{ urlize (.Date.Format "2006-01-02") }}-{{ urlize .Title }}"
+            >{{ .Date.Format "2006-01-02" }} - {{ .Title }}</a></li>
     {{ end }}
     </ol>
 
-    {{ range .Pages }}
+    {{ range .Site.RegularPages }}
         <br />
         <h3 id="{{ urlize (.Date.Format "2006-01-02") }}-{{ urlize .Title }}" class="entry-title">{{ .Title }}</h3>
         {{ if .Date }}
         <small class="entry-date">{{ .Date.Format "2006-01-02" }}</small>
+        -
+        <small class="entry-date">{{ .Date.Format "Monday, January 2" }}</small>
         {{ else }}
         <small class="entry-date">No date</small>
         {{ end }}
+        -
+        <a href="{{.Permalink}}"><small>link to post</small></a>
+        -
+        <a href="#toc-{{ urlize (.Date.Format "2006-01-02") }}-{{ urlize .Title }}"
+        ><small>return to toc</small></a>
         {{ .Content }}
     {{ end }}
 
